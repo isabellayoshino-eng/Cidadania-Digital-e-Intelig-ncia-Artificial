@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cidadania Digital: Combate às Deepfakes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Guia da Cidadania Digital</h1>
+        <p>Aprenda a identificar deepfakes e combater a desinformação por IA.</p>
+    </header>
+
+    <main class="container">
+        <!-- Seção Educativa -->
+        <section class="card">
+            <h2>🔍 Como Identificar uma Deepfake?</h2>
+            <p>As deepfakes usam inteligência artificial para adulterar rostos e vozes. Fique atento a estes sinais:</p>
+            <ul>
+                <li><strong>Piscadas irreais:</strong> Olhos que não piscam ou piscam de forma artificial.</li>
+                <li><strong>Falhas nos cantos:</strong> Desfocados perto das orelhas, cabelo ou pescoço.</li>
+                <li><strong>Áudio dessincronizado:</strong> O movimento dos lábios não bate com a fala.</li>
+                <li><strong>Iluminação fixa:</strong> Sombras que não mudam quando a pessoa se move.</li>
+            </ul>
+        </section>
+
+        <!-- Seção Interativa (Quiz) -->
+        <section class="card">
+            <h2>🎮 Desafio Interativo: Fato ou Fake?</h2>
+            <p>Se você receber um vídeo de um político famoso revelando um segredo absurdo em um canal desconhecido, o que você faz?</p>
+            <div class="quiz-options">
+                <button onclick="verificarResposta(true)">Compartilho imediatamente no WhatsApp</button>
+                <button onclick="verificarResposta(false)">Desconfio e procuro em fontes oficiais</button>
+            </div>
+            <p id="resultado-quiz" class="resultado"></p>
+        </section>
+
+        <!-- Seção de Captura de Dados (Formulário) -->
+        <section class="card">
+            <h2>🚨 Central de Alerta Comunitário</h2>
+            <p>Encontrou um link suspeito? Reporte para nossa comunidade analisar.</p>
+            <form id="form-denuncia" onsubmit="enviarDenuncia(event)">
+                <label for="nome">Seu Nome (Opcional):</label>
+                <input type="text" id="nome" placeholder="Ex: João Silva">
+
+                <label for="link">Link da Mídia Suspeita:</label>
+                <input type="url" id="link" required placeholder="https://exemplo.com">
+
+                <label for="descricao">Por que você achou a mídia suspeita?</label>
+                <textarea id="descricao" rows="4" required placeholder="Ex: A voz parece robótica..."></textarea>
+
+                <button type="submit">Enviar Relatório</button>
+            </form>
+            <div id="mensagem-sucesso" class="sucesso-msg hidden">✅ Obrigado! Seu relatório foi registrado com sucesso.</div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Projeto Escolar de Cidadania Digital. Desenvolvido para conscientização social.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
