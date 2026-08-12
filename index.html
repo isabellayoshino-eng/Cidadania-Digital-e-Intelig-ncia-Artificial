@@ -3,64 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cidadania Digital: Combate às Deepfakes</title>
+    <title>Mundo dos Gatos 🐾</title>
+    <!-- Vinculando o arquivo CSS externo -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header>
-        <h1>Guia da Cidadania Digital</h1>
-        <p>Aprenda a identificar deepfakes e combater a desinformação por IA.</p>
+        <h1>Mundo dos Gatos 🐾</h1>
+        <p>Explore o universo fascinante, colorido e misterioso dos felinos!</p>
     </header>
 
-    <main class="container">
-        <!-- Seção Educativa -->
-        <section class="card">
-            <h2>🔍 Como Identificar uma Deepfake?</h2>
-            <p>As deepfakes usam inteligência artificial para adulterar rostos e vozes. Fique atento a estes sinais:</p>
-            <ul>
-                <li><strong>Piscadas irreais:</strong> Olhos que não piscam ou piscam de forma artificial.</li>
-                <li><strong>Falhas nos cantos:</strong> Desfocados perto das orelhas, cabelo ou pescoço.</li>
-                <li><strong>Áudio dessincronizado:</strong> O movimento dos lábios não bate com a fala.</li>
-                <li><strong>Iluminação fixa:</strong> Sombras que não mudam quando a pessoa se move.</li>
-            </ul>
-        </section>
-
-        <!-- Seção Interativa (Quiz) -->
-        <section class="card">
-            <h2>🎮 Desafio Interativo: Fato ou Fake?</h2>
-            <p>Se você receber um vídeo de um político famoso revelando um segredo absurdo em um canal desconhecido, o que você faz?</p>
-            <div class="quiz-options">
-                <button onclick="verificarResposta(true)">Compartilho imediatamente no WhatsApp</button>
-                <button onclick="verificarResposta(false)">Desconfio e procuro em fontes oficiais</button>
+    <main>
+        <!-- Assistente Interativo -->
+        <div class="container-assistente">
+            <div class="gato-avatar" id="gatoAssistente">🐱</div>
+            <div class="balao-dialogo">
+                <p id="textoBalao">Olá, humano! Eu sou o Mingau. Clique em mim para aprender uma curiosidade felina aleatória!</p>
             </div>
-            <p id="resultado-quiz" class="resultado"></p>
+        </div>
+
+        <!-- Seção: História -->
+        <section id="historia">
+            <h2>📜 Uma História de Deuses a Companheiros</h2>
+            <p>A relação entre humanos e gatos começou há mais de 9.000 anos no Oriente Médio. O ápice da sua popularidade histórica ocorreu no <strong>Antigo Egito</strong>, onde eram venerados como divindades e associados à deusa Bastet, que representava a proteção, fertilidade e o lar.</p>
+            <p>Após passarem por períodos difíceis de superstição na Idade Média Europeia, eles conquistaram o mundo navegando em navios mercantes como protetores dos estoques de comida contra roedores. Hoje, reinam absolutos como os donos da internet e de milhões de lares.</p>
         </section>
 
-        <!-- Seção de Captura de Dados (Formulário) -->
-        <section class="card">
-            <h2>🚨 Central de Alerta Comunitário</h2>
-            <p>Encontrou um link suspeito? Reporte para nossa comunidade analisar.</p>
-            <form id="form-denuncia" onsubmit="enviarDenuncia(event)">
-                <label for="nome">Seu Nome (Opcional):</label>
-                <input type="text" id="nome" placeholder="Ex: João Silva">
+        <!-- Seção: Raças -->
+        <section id="racas">
+            <h2>🐈 Raças Fascinantes</h2>
+            <p>Clique nos cards abaixo para descobrir traços únicos sobre algumas das raças mais conhecidas do mundo:</p>
+            
+            <div class="grid-racas">
+                <div class="card-raca" id="card-persa">
+                    <span class="emoji-raca">🦁</span>
+                    <h3>Persa</h3>
+                    <p>Os reis da pelagem longa e da calmaria.</p>
+                </div>
+                <div class="card-raca" id="card-siames">
+                    <span class="emoji-raca">🦊</span>
+                    <h3>Siamês</h3>
+                    <p>Elegantes, de olhos azuis e muito tagarelas.</p>
+                </div>
+                <div class="card-raca" id="card-maine">
+                    <span class="emoji-raca">🐯</span>
+                    <h3>Maine Coon</h3>
+                    <p>Uma das maiores raças de gatos do mundo.</p>
+                </div>
+                <div class="card-raca" id="card-srd">
+                    <span class="emoji-raca">🐱</span>
+                    <h3>SRD (Vira-lata)</h3>
+                    <p>Cheios de energia, únicos e apaixonantes!</p>
+                </div>
+            </div>
+        </section>
 
-                <label for="link">Link da Mídia Suspeita:</label>
-                <input type="url" id="link" required placeholder="https://exemplo.com">
+        <!-- Seção: Modo de Tratamento (Cuidados) -->
+        <section id="cuidados">
+            <h2>🩺 Modo de Tratamento e Cuidados</h2>
+            <p>Gatos possuem necessidades muito específicas para viverem felizes e saudáveis. Clique nas abas para explorar:</p>
+            
+            <div class="abas-botoes">
+                <button class="btn-aba ativo" data-aba="alimentacao">Alimentação</button>
+                <button class="btn-aba" data-aba="saude">Saúde Veterinária</button>
+                <button class="btn-aba" data-aba="ambiente">Ambiente (Gatificação)</button>
+            </div>
 
-                <label for="descricao">Por que você achou a mídia suspeita?</label>
-                <textarea id="descricao" rows="4" required placeholder="Ex: A voz parece robótica..."></textarea>
+            <div id="alimentacao" class="conteudo-aba ativo">
+                <h3>🍲 Nutrição de Alta Qualidade</h3>
+                <p>Gatos são carnívoros estritos. Eles precisam de rações com alta porcentagem de proteína animal. Como possuem baixa tendência a beber água diretamente, é vital oferecer <strong>alimento úmido (sachês)</strong> diariamente para proteger seus rins.</p>
+            </div>
 
-                <button type="submit">Enviar Relatório</button>
-            </form>
-            <div id="mensagem-sucesso" class="sucesso-msg hidden">✅ Obrigado! Seu relatório foi registrado com sucesso.</div>
+            <div id="saude" class="conteudo-aba">
+                <h3>💉 Vacinação e Check-ups</h3>
+                <p>Mantenha as vacinas (V4 ou V5 e Antirrábica) sempre em dia. Visitas anuais ao veterinário ajudam a prevenir doenças silenciosas. A castração é altamente recomendada antes dos 6 meses para evitar fugas e tumores.</p>
+            </div>
+
+            <div id="ambiente" class="conteudo-aba">
+                <h3>🧸 Gatificação do Lar</h3>
+                <p>Gatos precisam explorar as três dimensões do espaço. Instale prateleiras na parede, arranhadores verticais e ofereça brinquedos que estimulem o instinto de caça para evitar o estresse e a obesidade.</p>
+            </div>
+        </section>
+
+        <!-- Seção: Quiz -->
+        <section id="quiz">
+            <h2>🧠 Desafio Felino: Teste seus Conhecimentos!</h2>
+            <div class="caixa-quiz">
+                <p><strong>Pergunta:</strong> Por qual parte do corpo os gatos suam principalmente?</p>
+                <div class="opcoes-quiz">
+                    <button class="btn-opcao opcao-errada">Pela ponta das orelhas</button>
+                    <button class="btn-opcao opcao-correta">Pelas almofadas das patas (coxins)</button>
+                    <button class="btn-opcao opcao-errada">Pela língua, igual aos cães</button>
+                </div>
+                <div id="resultadoQuiz" class="resultado-quiz"></div>
+            </div>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2026 Projeto Escolar de Cidadania Digital. Desenvolvido para conscientização social.</p>
+        <p>Criado com 🧡 para amantes de felinos. © 2026 Mundo dos Gatos.</p>
     </footer>
 
+    <!-- Vinculando o arquivo JavaScript externo -->
     <script src="script.js"></script>
 </body>
 </html>
