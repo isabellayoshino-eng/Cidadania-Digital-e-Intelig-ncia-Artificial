@@ -80,6 +80,26 @@ botoesQuiz.forEach(botao => {
             resultadoQuiz.innerText = "❌ Quase lá! A resposta correta era: Pelas almofadas das patas (coxins).";
             elementoClicado.style.borderColor = "#EF4444";
             elementoClicado.style.backgroundColor = "#FEE2E2";
+            // --- SISTEMA DE FEEDBACK (GOSTOU OU NÃO) ---
+const btnGostei = document.getElementById('btn-gostei');
+const btnNaoGostei = document.getElementById('btn-nao-gostei');
+const respostaFeedback = document.getElementById('resposta-feedback');
+
+btnGostei.addEventListener('click', () => {
+    respostaFeedback.style.display = "block";
+    respostaFeedback.style.color = "#06D6A0";
+    respostaFeedback.innerText = "❤️ Que ótimo! O Mingau ficou roncando de felicidade aqui!";
+    btnGostei.disabled = true;
+    btnNaoGostei.disabled = true;
+});
+
+btnNaoGostei.addEventListener('click', () => {
+    respostaFeedback.style.display = "block";
+    respostaFeedback.style.color = "#EF4444";
+    respostaFeedback.innerText = "😿 Ah que pena... Vamos afiar nossas garras e melhorar na próxima!";
+    btnGostei.disabled = true;
+    btnNaoGostei.disabled = true;
+});
         }
     });
 });
