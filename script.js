@@ -1,40 +1,85 @@
-// Função para o mini-quiz de tomada de decisão
-function verificarResposta(compartilhou) {
-    const elementoResultado = document.getElementById("resultado-quiz");
+// --- SISTEMA DO ASSISTENTE FELINO (BALÃO) ---
+const curiosidades = [
+    "Os gatos passam cerca de 30% a 50% do dia se limpando!",
+    "O miado do gato é uma ferramenta usada quase exclusivamente para se comunicar com humanos.",
+    "O cérebro de um gato é biologicamente mais similar ao de um humano do que ao de um cachorro.",
+    "Gatos podem pular até seis vezes a sua própria altura!",
+    "A audição de um felino é uma das mais apuradas do reino animal, detectando ultrassons.",
+    "O ronrono nem sempre significa felicidade; pode indicar que estão tentando se acalmar ou se curar."
+];
+
+const gatoAvatar = document.getElementById('gatoAssistente');
+const textoBalao = document.getElementById('textoBalao');
+
+gatoAvatar.addEventListener('click', () => {
+    const indiceAleatorio = Math.floor(Math.random() * curiosidades.length);
+    textoBalao.innerText = curiosidades[indiceAleatorio];
     
-    if (compartilhou) {
-        elementoResultado.style.color = "#e74c3c"; // Vermelho
-        elementoResultado.textContent = "❌ Alerta! Compartilhar sem checar ajuda a espalhar desinformação. Sempre verifique os fatos primeiro.";
-    } else {
-        elementoResultado.style.color = "#2ecc71"; // Verde
-        elementoResultado.textContent = "✅ Excelente escolha! O ceticismo saudável é a maior defesa do cidadão digital.";
-    }
-}
-
-// Função para processar o formulário de denúncia
-function enviarDenuncia(event) {
-    event.preventDefault(); // Impede a página de recarregar
-
-    // Coleta dos dados do formulário
-    const nome = document.getElementById("nome").value || "Anônimo";
-    const link = document.getElementById("link").value;
-    const descricao = document.getElementById("descricao").value;
-
-    // Simulação de salvamento/exibição no console do navegador para testes do aluno
-    console.log("--- Nova Denúncia Recebida ---");
-    console.log(`Autor: ${nome}`);
-    console.log(`Link: ${link}`);
-    console.log(`Motivo do Alerta: ${descricao}`);
-
-    // Exibe a mensagem de sucesso na tela
-    const msgSucesso = document.getElementById("mensagem-sucesso");
-    msgSucesso.classList.remove("hidden");
-
-    // Limpa os campos do formulário
-    document.getElementById("form-denuncia").reset();
-
-    // Remove a mensagem de sucesso após 5 segundos
+    // Animação de pulo rápido ao clicar
+    gatoAvatar.style.transform = "scale(1.3) rotate(-10deg)";
     setTimeout(() => {
-        msgSucesso.classList.add("hidden");
-    }, 5000);
-}
+        gatoAvatar.style.transform = "none";
+    }, 300);
+});
+
+// --- CLIQUES NAS RAÇAS ---
+document.getElementById('card-persa').addEventListener('click', () => {
+    alert('Persa: Conhecido pelo focinho achatado e temperamento extremamente calmo e dócil.');
+});
+document.getElementById('card-siames').addEventListener('click', () => {
+    alert('Siamês: Muito comunicativo, costuma miar alto para conversar com os tutores.');
+});
+document.getElementById('card-maine').addEventListener('click', () => {
+    alert('Maine Coon: Podem chegar a 1 metro de comprimento. São conhecidos como gigantes gentis.');
+});
+document.getElementById('card-srd').addEventListener('click', () => {
+    alert('Vira-lata (SRD): Misturas únicas que geram os gatos mais resistentes, carinhosos e inteligentes.');
+});
+
+// --- SISTEMA DE ABAS (TRATAMENTO/CUIDADOS) ---
+const botoesAba = document.querySelectorAll('.btn-aba');
+const conteudosAba = document.querySelectorAll('.conteudo-aba');
+
+botoesAba.forEach(botao => {
+    botao.addEventListener('click', (e) => {
+        const idAbaAlvo = e.target.getAttribute('data-aba');
+
+        // Remove a classe ativo de todos os botões e conteúdos
+        conteudosAba.forEach(conteudo => conteudo.classList.remove('ativo'));
+        botoesAba.forEach(btn => btn.classList.remove('ativo'));
+
+        // Adiciona a classe ativa apenas no elemento clicado e no seu respectivo bloco
+        document.getElementById(idAbaAlvo).classList.add('ativo');
+        e.target.classList.add('ativo');
+    });
+});
+
+// --- VALIDAÇÃO DO QUIZ ---
+const botoesQuiz = document.querySelectorAll('.btn-opcao');
+const resultadoQuiz = document.getElementById('resultadoQuiz');
+
+botoesQuiz.forEach(botao => {
+    botao.addEventListener('click', (e) => {
+        // Bloqueia cliques adicionais
+        botoesQuiz.forEach(btn => btn.disabled = true);
+
+        const elementoClicado = e.target;
+        const eCorreto = elementoClicado.classList.contains('opcao-correta');
+
+        resultadoQuiz.style.display = "block";
+
+        if (eCorreto) {
+            resultadoQuiz.style.backgroundColor = "#DCFCE7";
+            resultadoQuiz.style.color = "#15803D";
+            resultadoQuiz.innerText = "🎉 Acertou em cheio! Eles suam pelas patinhas e também regulam a temperatura lambendo os pelos.";
+            elementoClicado.style.borderColor = "#22C55E";
+            elementoClicado.style.backgroundColor = "#DCFCE7";
+        } else {
+            resultadoQuiz.style.backgroundColor = "#FEE2E2";
+            resultadoQuiz.style.color = "#B91C1C";
+            resultadoQuiz.innerText = "❌ Quase lá! A resposta correta era: Pelas almofadas das patas (coxins).";
+            elementoClicado.style.borderColor = "#EF4444";
+            elementoClicado.style.backgroundColor = "#FEE2E2";
+        }
+    });
+});
